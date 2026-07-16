@@ -48,7 +48,6 @@ function handleData(data) {
 
 title.addEventListener("click", e => {
     studid.value = ""
-    pwd.value = ""
     jackettitle.style.display = "none"
     jackettable.innerHTML = ``
     hoodietitle.style.display = "none"
