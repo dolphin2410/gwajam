@@ -56,6 +56,7 @@ exports.handler = async (event) => {
 
     try {
         const result = []
+        console.log(data)
         for (row of data) {
             const studid = row[1]
             const name = row[2]
