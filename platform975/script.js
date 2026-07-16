@@ -1,11 +1,12 @@
 const pwd = document.querySelector("#pwd")
 const btn = document.querySelector("#btn")
 const jacketbtn = document.querySelector("#jacketbtn")
+const humanbtn = document.querySelector("#humanbtn")
 const hoodiebtn = document.querySelector("#hoodiebtn")
 const ghoodiebtn = document.querySelector("#ghoodiebtn")
 const wphoodiebtn = document.querySelector("#wphoodiebtn")
 const wbhoodiebtn = document.querySelector("#wbhoodiebtn")
-const btns = [jacketbtn, hoodiebtn, ghoodiebtn, wphoodiebtn, wbhoodiebtn]
+const btns = [jacketbtn, hoodiebtn, ghoodiebtn, wphoodiebtn, wbhoodiebtn, humanbtn]
 
 const soosang1 = document.querySelector("#soosang1")
 const soosang2 = document.querySelector("#soosang2")
@@ -48,11 +49,18 @@ btn.addEventListener("click", async e => {
         })
     })
 
+    let raonlist = []
+    data.forEach(e => raonlist.push({ year: String(e.id).substring(2, 4), name: e.name, quantity: e.jackets.length }))
+
     let grayhoodiedata = hoodiedata.filter(e => e.color == "그레이").map(e => ({ id: e.id, name: e.name, size: e.size, verified: e.verified }))
     let whitepinkhoodiedata = hoodiedata.filter(e => e.color == "화이트 + 핑크").map(e => ({ id: e.id, name: e.name, size: e.size, verified: e.verified }))
     let whitebrownhoodiedata = hoodiedata.filter(e => e.color == "화이트 + 브라운").map(e => ({ id: e.id, name: e.name, size: e.size, verified: e.verified }))
 
     btns.forEach(e => e.style.display = "block")
+
+    humanbtn.addEventListener("click", e => {
+        downloadFile("2026_raon_list.csv", jsonToCSV(["year", "name", "quantity"], raonlist))
+    })
 
     jacketbtn.addEventListener("click", e => {
         downloadFile("2026_raon_jacket.csv", jsonToCSV(["id", "name", "size", "text", "verified"], jacketdata))
@@ -73,16 +81,4 @@ btn.addEventListener("click", async e => {
     wbhoodiebtn.addEventListener("click", e => {
         downloadFile("2026_raon_white_brown_hoodie.csv", jsonToCSV(["id", "name", "size", "verified"], whitebrownhoodiedata))
     })
-})
-
-soosang1.addEventListener("click", e => {
-    alert("수(하)는 아직 안 했어요ㅜㅜ")
-})
-
-soosang2.addEventListener("click", e => {
-    alert("한 번만 더?")
-})
-
-soosang3.addEventListener("click", e => {
-    alert("/platform[음력한글날]")
 })
