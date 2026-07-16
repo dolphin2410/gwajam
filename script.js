@@ -50,8 +50,6 @@ title.addEventListener("click", e => {
     studid.value = ""
     jackettitle.style.display = "none"
     jackettable.innerHTML = ``
-    hoodietitle.style.display = "none"
-    hoodietable.innerHTML = ``
 })
 
 let counter = 0
