@@ -2,7 +2,6 @@ let title = document.getElementById("title")
 
 let submitbtn = document.getElementById("submitbtn")
 let studid = document.getElementById("studid")
-let pwd = document.getElementById("pwd")
 let jackettable = document.getElementById("jackettable")
 let results = document.getElementById("results")
 
@@ -44,7 +43,7 @@ function handleData(data) {
     if(jackets.length == 0) {
         jackettable.innerHTML += `<tr><td>구매하지 않음</td><td></td></tr>`
     }
-        }
+}
 
 
 title.addEventListener("click", e => {
