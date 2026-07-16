@@ -73,6 +73,7 @@ exports.handler = async (event) => {
             body: JSON.stringify(result),
         };
     } catch (error) {
+        console.error("Error reading data:", error);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: "Failed to read data." }),
