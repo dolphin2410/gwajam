@@ -37,7 +37,6 @@ function handleData(data) {
     for (item of data) {
             jackets.push(item)
             jackettable.innerHTML += `<tr><td>${item["size"]}</td><td>${item["price"]}</td><td>${item["verified"]}</td></tr>`
-        }
     }
 
     jackettitle.style.display = "block"
@@ -45,6 +44,8 @@ function handleData(data) {
     if(jackets.length == 0) {
         jackettable.innerHTML += `<tr><td>구매하지 않음</td><td></td></tr>`
     }
+        }
+
 
 title.addEventListener("click", e => {
     studid.value = ""
