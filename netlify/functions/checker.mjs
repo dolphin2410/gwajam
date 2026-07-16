@@ -9,12 +9,10 @@ async function loadSheets(studid) {
     const apiKey = process.env.SHEETS_API_KEY;
 
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/mainsheet?key=${apiKey}`;
-    console.log('passed01')
 
     try {
         const response = await fetch(url)
         const rows = (await response.json()).values
-    console.log('passed02')
 
         let filtered = []
 
@@ -52,18 +50,14 @@ exports.handler = async (event) => {
         }
     }
 
-    console.log('passed')
-
     try {
         const result = []
-        console.log(data)
         for (row of data) {
             const studid = row[1]
             const name = row[2]
             const size = row[4]
             const price = row[5].match(/\d+원/)[0]
             const verified = row[7]
-    console.log('passed2')
 
             result.push({
                 studid,
